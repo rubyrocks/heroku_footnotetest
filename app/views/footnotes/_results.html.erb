@@ -1,0 +1,32 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<br>
+<br>
+<table border = 1>
+      <tr>
+        <th>Component</th>
+        <th>Tot obltn am</th>
+        <th>Basis</th>
+        <th>Var prcnt nbr</th>
+        <th>Thrshd prcnt nbr</th>
+        <th>Footnote</th>
+      </tr>
+  
+      <% for footnote in @footnotes %>
+        <tr>
+          <td><%=h footnote.compo_id %></td>
+          <td><%=h footnote.tot_obltn_am %></td>
+          <td><%=h footnote.ftnt_ty_cd %></td>
+          <td><%=h footnote.var_prcnt_nbr %></td>
+          <td><%=h footnote.thrshd_prcnt_nbr %></td>
+          <td width="20%"><%=h footnote.ftnt_tx %></td>
+          <td><%= link_to image_tag("display.gif"), footnote %></td>
+          <td><%= link_to image_tag("edit.gif"), edit_footnote_path(footnote) %></td>
+          <td><%= link_to image_tag("delete.gif"), footnote, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+</table>
+<br/>

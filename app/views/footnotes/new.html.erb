@@ -1,0 +1,31 @@
+<h1>New footnote</h1>
+
+<% form_for(@footnote) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :tot_obltn_am %><br />
+    <%= f.text_field :tot_obltn_am %>
+  </p>
+  <p>
+    <%= f.label :ftnt_ty_cd %><br />
+    <%= f.text_field :ftnt_ty_cd %>
+  </p>
+  <p>
+    <%= f.label :var_prcnt_nbr %><br />
+    <%= f.text_field :var_prcnt_nbr %>
+  </p>
+  <p>
+    <%= f.label :thrshd_prcnt_nbr %><br />
+    <%= f.text_field :thrshd_prcnt_nbr %>
+  </p>
+  <p>
+    <%= f.label :ftnt_tx %><br />
+    <%= f.text_area :ftnt_tx %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', footnotes_path %>

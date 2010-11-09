@@ -1,2 +1,7 @@
 Use this README file to introduce your application and point to useful places in the API for learning more.
 Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+This was just a test for Rails in fall 2008.  Similar to a Java web application screen done using Struts2/Hibernate.
+
+Wanted to see how much easier and fun it is in Ruby on Rails.  No custom CSS.  Just a nice remote_form_for using visual effect.
+Throw some ajax in. 

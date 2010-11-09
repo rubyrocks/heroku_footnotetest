@@ -1,0 +1,27 @@
+<h1>View Footnote</h1>
+
+<style type="text/css">
+       .footnotetable {
+            border: #707070 solid black;
+            padding:5px;
+       }
+       
+       .footnotetable td {
+            font-size: 0.8em;
+            border-style: inset 
+            solid 0.05em;
+            width: 100%;
+       }
+</style>
+
+<%= render :partial => 'filterselect' %>
+
+<div id='filterselectresults'>
+     <%= render :partial => 'results' %>
+</div>
+
+<%= link_to 'New footnote', new_footnote_path %>
+
+<br>
+<br>
+<br>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tot_obltn_am: 
+  ftnt_ty_cd: MyString
+  var_prcnt_nbr: 
+  thrshd_prcnt_nbr: 
+  ftnt_tx: MyText
+
+two:
+  tot_obltn_am: 
+  ftnt_ty_cd: MyString
+  var_prcnt_nbr: 
+  thrshd_prcnt_nbr: 
+  ftnt_tx: MyText

@@ -1,0 +1,46 @@
+http://www.netbeans.org/kb/61/ruby/setting-up.html
+activerecord-jdbc-adapter
+add to Rails Java JRuby classpath: C:\ora9i\jdbc\lib\ojdbc14.jar
+
+environment.rb before Rails::Initializer.run do |config|
+ if RUBY_PLATFORM =~ /java/
+   require 'rubygems'
+   gem 'activerecord-jdbc-adapter'
+   require 'jdbc_adapter'
+ end
+
+class Footnote < ActiveRecord::Base
+  set_table_name "cr_ftnt_fact" 
+  set_primary_key "ftntf_id"
+end
+
+ruby script/generate scaffold Footnote tot_obltn_am:number ftnt_ty_cd:string var_prcnt_nbr:number thrshd_prcnt_nbr:number ftnt_tx:text
+  t.integer :compo_id, :null => false, :limit => 10
+  t.integer :rptpd_id, :null => false, :limit => 10
+  t.integer :tot_obltn_am
+  t.string :ftnt_ty_cd
+  t.integer :var_prcnt_nbr, :limit => 3000
+  t.integer :thrshd_prcnt_nbr
+        t.text :ftnt_tx
+
+db:migrate --trace
+db:migrate:down --trace  # drop tables
+db:fixtures:load --trace # load test data
+
+ruby script/generate model Component
+  t.string :compo_cd, :null => false, :limit => 10
+        t.string :compo_nm, :null => false, :limit => 50
+
+ruby script/generate model Reportingperiod
+  t.integer :cal_mo_nbr, :null => false, :limit => 2
+  t.string :fy, :null => false, :limit => 4
+        t.string :prd_nm, :null => false, :limit => 50
+        
+ruby script/generate model Contingency
+  t.string :cntgcy_cd, :null => false, :limit => 6
+        t.string :cntgcy_nm, :null => false, :limit => 50
+        
+ruby script/generate model Datastat
+  t.integer :compo_id, :null => false, :limit => 10
+  t.integer :rptpd_id, :null => false, :limit => 10
+        t.string :data_stat_cd, :null => false, :limit => 14

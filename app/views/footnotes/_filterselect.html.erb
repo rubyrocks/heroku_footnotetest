@@ -1,0 +1,50 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+
+<%= javascript_include_tag :all %>
+
+<script type="text/javascript">  
+
+        function getCompoIDValue() {
+          var compoid = document.filterselect.footnote_compo_id.value;
+          alert(compoid);
+          return compoid;
+        }
+        
+</script>
+
+
+
+<%  remote_form_for :footnote, @footnotes, 
+                       :url => { :action => 'refreshlist', :id => @footnotes },
+                       :update => 'filterselectresults',
+                       :complete => visual_effect(:highlight, 'filterselectresults') do |form| %>
+
+<br>
+      <span>
+          <label>Contingency</label>
+            <% @contgs = Contingency.find(:all) %>
+            <%= collection_select(:footnote, :cntgcy_id, @contgs, :id, :cntgcy_cd, options ={:prompt => "-Select a Contingency"}, :class =>"footnote") %>
+          
+      </span>
+      
+      <span>
+          <label>Component</label>
+          
+          <% @comps = Component.find(:all) %>
+          <%= collection_select(:footnote, :compo_id, @comps, :compo_cd, :compo_nm, options ={:prompt => "-Select a Component"}, :class =>"footnote") %>
+
+      </span>
+
+      <span>
+          <label>Reporting Period</label>
+          
+          <% @rptprds = Reportingperiod.find(:all) %>
+          <%= collection_select(:footnote, :rptpd_id, @rptprds, :rptprd_id, :prd_nm, options ={:prompt => "-Select a Reporting Period"}, :class =>"footnote") %>
+      </span>
+<%= submit_tag "Refresh", :class => "submit" %>
+
+<% end %>

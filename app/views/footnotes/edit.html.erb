@@ -1,0 +1,43 @@
+<h1>Editing footnote</h1>
+
+<% form_for(@footnote) do |f| %>
+  <%= f.error_messages %>
+  <table border = 1>
+    <tr>
+      <td>
+          <b>Tot obltn am</b>
+          <br/>
+          <%= f.text_field :tot_obltn_am, :readonly => "true" %>
+      </td>
+      
+      <td>
+            <b>Basis</b>
+            <br/>
+            <%= f.text_field :ftnt_ty_cd, :readonly => "true" %>
+      </td>
+      
+      <td>
+            <b>Var prcnt nbr</b>
+            <br/>
+            <%= f.text_field :var_prcnt_nbr, :readonly => "true" %>
+
+      <td>
+            <b>Thrshd prcnt nbr</b>
+            <br />
+            <%= f.text_field :thrshd_prcnt_nbr, :readonly => "true" %>
+      </td>
+    </tr>
+  </table>
+  
+  <br>
+  <p>
+    <%= f.label :ftnt_tx %><br />
+    <%= f.text_area :ftnt_tx %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @footnote %> |
+<%= link_to 'Back', footnotes_path %>
